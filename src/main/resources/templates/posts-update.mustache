@@ -1,0 +1,30 @@
+{{>layout/header}}
+
+    <h1>게시글 수정</h1>
+    <div class="col-md-12">
+        <dv class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <labrl for="id">글 번호</labrl>
+                    <input type="text" class="form-control" id="id" value="{{posts.id}}" readonly />
+                </div>
+                <div class="form-group">
+                    <labrl for="title">제목</labrl>
+                    <input type="text" class="form-control" id="title" value="{{posts.title}}" />
+                </div>
+                <div class="form-group">
+                    <labrl for="author">작성자</labrl>
+                    <input type="text" class="form-control" id="author" value="{{posts.author}}" readonly />
+                </div>
+                <div class="form-group">
+                    <labrl for="content">내용</labrl>
+                    <textarea class="form-control" id="content">{{posts.content}}</textarea>
+                </div>
+            </form>
+            <a href="/" role="button" class="btn btn-secondary">취소</a>
+            <button type="button" class="btn btn-primary" id="btn-update">수정</button>
+            <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+        </dv>
+    </div>
+
+{{>layout/footer}}
