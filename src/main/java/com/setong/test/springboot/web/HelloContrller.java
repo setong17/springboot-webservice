@@ -18,5 +18,6 @@ public class HelloContrller {
                                      @RequestParam("amount") int amount) {
         return new HelloResponseDto(name, amount);
     }
+    S
 
 }
