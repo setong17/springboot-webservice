@@ -17,6 +17,22 @@ script: "./gradlew clean build"
 before_install:
     - sudo chmod +x gradlew
 
+before_deploy:
+    - zip -r springboot-webservice *
+    - mkdir -p deploy
+    - mv springboot-webservice.zip deploy/springootwebservice.zip
+
+deploy:
+    - provider: s3
+      access_key_id: $AWS_ACCESS_KEY        # Travis repo settings 설정
+      secret_access_key: $AWS_SECRET_KEY    # Travis repo settings 설정
+      bucket: setong-test-springboot-build
+      region: ap-northeast-2
+      skip_cleanup: true
+      acl: private                          # zip 파일 접근 private
+      local_dir: deploy                     # before_deploy 에 생성한 디렉토리
+      wait-until-deployed : true
+
 # CI 실행 완료시 메일 알림
 notifications:
     email:
